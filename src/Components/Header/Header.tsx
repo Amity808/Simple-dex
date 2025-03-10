@@ -5,7 +5,6 @@ import {
   LogoStyle,
 } from "../../Styles/Header";
 import { formatAddress } from "../../utils/helpers";
-import { useThemeToggle } from "../../hooks/useTheme";
 import DarkSvg from "../../assests/dark.svg"
 import LightSvg from "../../assests/light.svg"
 import { useThemeToggleContext } from "../../context/ThemeContext.tsx";
