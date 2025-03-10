@@ -5,11 +5,21 @@ import {
   LogoStyle,
 } from "../../Styles/Header";
 import { formatAddress } from "../../utils/helpers";
+import { useThemeToggle } from "../../hooks/useTheme";
+import DarkSvg from "../../assests/dark.svg"
+import LightSvg from "../../assests/light.svg"
+import { useThemeToggleContext } from "../../context/ThemeContext.tsx";
 
-export const Header = () => {
+
+export const Header = ({ toggleTheme } : any) => {
+  const { isDarkMode } = useThemeToggleContext();
   return (
     <HeaderStyle>
       <Logo />
+      {isDarkMode
+      ? <img src={LightSvg} onClick={toggleTheme} alt="dark mode" className="" style={{ width: "24px", height: "24px"}} /> :
+      <img src={DarkSvg}  onClick={toggleTheme} alt="light mode" className="theme-icon" style={{ width: "24px", height: "24px"}}  />
+      }
       <ConnectButton />
     </HeaderStyle>
   );

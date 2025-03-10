@@ -4,10 +4,10 @@
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
+  /* color-scheme: light dark; */
+  /* color: rgba(255, 255, 255, 0.87); */
   /* background-color: #242424; */
-  background-color: #000;
+  /* background-color: #000; */
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -16,6 +16,8 @@
 }
 html,body{
   width: 100vw;
+  height: 100vh; /* Ensure full height */
+  margin: 0;
   overflow-x: hidden;
   scroll-behavior: smooth;
 }
@@ -33,4 +35,14 @@ input[type="number"] {
 }
 button{
   font-family: "Roboto Mono", monospace;
+}
+
+body.dark-mode {
+  background-color: #000000;
+  color: #fff;
+}
+
+body.light-mode {
+  background-color: #fff;
+  color: #000;
 }

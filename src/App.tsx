@@ -10,9 +10,13 @@ import { TabLinks } from "./Constants";
 import { BodyStyle } from "./Styles/Header";
 import { SettingsIcon, TabLink } from "./Components/Swap/TabLink";
 import "./connection.ts";
+// import { useThemeToggle } from "./hooks/useTheme.ts";
+import { useThemeToggleContext } from "./context/ThemeContext.tsx";
 
 
 function App() {
+  // const { isDarkMode, toggleTheme } = useThemeToggle();
+  const { isDarkMode, toggleTheme } = useThemeToggleContext()
   const [links, setLinks] = useState(TabLinks);
 
   const location = useLocation();
@@ -28,8 +32,8 @@ function App() {
   };
 
   return (
-    <>
-      <Header />
+    <div className={`${isDarkMode ? "dark-mode" : "light-mode"}`}>
+      <Header toggleTheme={toggleTheme} />
       <BodyStyle>
         <div className="cont">
           <div className="top">
@@ -64,7 +68,7 @@ function App() {
           </Routes>
         </div>
       </BodyStyle>
-    </>
+    </div>
   );
 }
 
