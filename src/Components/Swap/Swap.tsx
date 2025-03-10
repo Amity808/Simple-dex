@@ -1,6 +1,7 @@
 import { Dispatch, SetStateAction, useState } from "react";
 import { DynamicButton, InputStyles, SwapStyles } from "../../Styles/Swap";
 import { ArrowIcon } from "./Arrow";
+import { useAppKitAccount } from "@reown/appkit/react";
 
 
 interface IInputComp {
@@ -46,6 +47,7 @@ export const InputComp: React.FC<IInputComp> = ({
 };
 
 export const Swap = () => {
+  const {isConnected} = useAppKitAccount();
   const [token1, setToken1] = useState("");
   const [token2, setToken2] = useState("");
 
@@ -90,7 +92,8 @@ export const Swap = () => {
         </div>
       </div>
       <div className="btn">
-        <DynamicButton>Swap</DynamicButton>
+        {isConnected ? <DynamicButton>Swap</DynamicButton> : <DynamicButton>Connect Wallet</DynamicButton>}
+        
       </div>
     </SwapStyles>
   );
