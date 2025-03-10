@@ -9,8 +9,10 @@ import DarkSvg from "../../assests/dark.svg"
 import LightSvg from "../../assests/light.svg"
 import { useThemeToggleContext } from "../../context/ThemeContext.tsx";
 
-
-export const Header = ({ toggleTheme } : any) => {
+interface toggleInterface {
+  toggleTheme: () => void;
+}
+export const Header:React.FC<toggleInterface> = ({ toggleTheme }) => {
   const { isDarkMode } = useThemeToggleContext();
   return (
     <HeaderStyle>
