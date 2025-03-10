@@ -5,7 +5,6 @@ interface ThemeContextType {
   toggleTheme: () => void;
 }
 
-// Create context with default values
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
@@ -26,7 +25,7 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
   );
 };
 
-// Custom hook to use theme context
+
 export const useThemeToggleContext = (): ThemeContextType => {
   const context = useContext(ThemeContext);
   if (!context) {
